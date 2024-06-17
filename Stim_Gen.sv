@@ -5,7 +5,7 @@
 
 module tb():
 
-bit clk = 0;
+bit clk = 1'b0;
 bit wr,en;
 bit [6:0] addr;
 
@@ -15,11 +15,11 @@ task stim();
 
 @(posedge clk)
 
-en = 1; wr = 1; addr = 7'd12;
-#40 wr = 1; addr = 7'd14;
-#40 wr = 0; addr = 7'd23;
+en = 1'b1; wr = 1'b1; addr = 7'd12;
+#40 wr = 1'b1; addr = 7'd14;
+#40 wr = 1'b0; addr = 7'd23;
 #40 addr = 7'd48;
-#40 en = 0; addr = 7'd56;
+#40 en = 1'b0; addr = 7'd56;
 
 endtask
 
